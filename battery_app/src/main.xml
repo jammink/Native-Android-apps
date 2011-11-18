@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android" 
+  android:orientation="vertical" 
+  android:layout_width="200sp" 
+  android:layout_height="180sp"
+  android:background="@drawable/my_border"
+  > 
+    <TextView         
+        android:id="@+id/batteryLevel"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+    />
+    <TextView 
+   		android:id="@+id/batteryVoltage"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+    />
+    <TextView 
+   		android:id="@+id/batteryTemperature"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+    />
+    <TextView 
+   		android:id="@+id/batteryTechnology"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+    />
+    <TextView 
+   		android:id="@+id/batteryStatus"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+    />
+     <TextView 
+   		android:id="@+id/batteryPlugged"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+    />
+    <TextView 
+   		android:id="@+id/batteryHealth"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+    />
+</LinearLayout>
