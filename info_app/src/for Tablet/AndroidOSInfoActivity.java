@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
- * A run-once (Android 2.1 or greater) binary for finding the OS Version, Phone Model, OS Info (including Linux Version), CPU info and Hardware info 
+ * A run-once (Android 3.0 or greater) binary for finding the OS Version, Phone Model, OS Info (including Linux Version), CPU info and Hardware info 
  * of an Android-based phone.  More features to be added.
  * To build from source:
  * Create a new Eclipse Android Project, main package named   "com.hammink.AndroidOSInfoActivity"
@@ -20,15 +21,14 @@ import android.widget.TextView;
  *
  */
 
-public class AndroidOSInfoActivityActivity extends Activity {
+public class AndroidOSInfoActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
+        ScrollView scrllvwNo1 = (ScrollView) findViewById(R.id.scrllvwNo1);
         TextView OSVersion = (TextView)  findViewById(R.id.OSVersion);
-        TextView PhoneModel = (TextView) findViewById(R.id.PhoneModel);
         TextView OSinfo = (TextView) findViewById(R.id.OSinfo);
         TextView CPUinfo = (TextView)  findViewById(R.id.CPUinfo);
 		TextView Board = (TextView) findViewById(R.id.Board);
@@ -51,39 +51,34 @@ public class AndroidOSInfoActivityActivity extends Activity {
 		TextView Type = (TextView) findViewById(R.id.Type);
 		TextView User = (TextView) findViewById(R.id.User);
 
-        OSinfo.setText(ReadOSinfo());
-        CPUinfo.setText(ReadCPUinfo());
-        OSVersion.setText(ReadOSVersion());
-        PhoneModel.setText(ReadPhoneModel());
-		Board.setText(ReadBoard());
-		Bootloader.setText(ReadBootloader());
-		Brand.setText(ReadBrand());
-		Cpu_abi.setText(ReadCpu_abi());
-		Cpu_abi2.setText(ReadCpu_abi2());
-		Device.setText(ReadDevice());
-		Display.setText(ReadDisplay());
-		Fingerprint.setText(ReadFingerprint());
-		Hardware.setText(ReadHardware());
-		Host.setText(ReadHost());
-		IDd.setText(ReadIDd());
-		Manufacturer.setText(ReadManufacturer());
-		Model.setText(ReadModel());
-		Product.setText(ReadProduct());
-		Serial.setText(ReadSerial());
-		Tags.setText(ReadTags());
-		Time.setText(ReadTime());
-		Type.setText(ReadType());
-		User.setText(ReadUser());
+		scrllvwNo1.isEnabled();
+        OSVersion.setText("Android OS: " + ReadOSVersion());
+		Model.setText("Model: " + ReadModel());
+		Board.setText("Board: " + ReadBoard());
+		Bootloader.setText("Bootloader: " + ReadBootloader());
+		Brand.setText("Brand: " + ReadBrand());
+		Cpu_abi.setText("CPU_ABI: " + ReadCpu_abi());
+		Cpu_abi2.setText("CPU_ABI2: " + ReadCpu_abi2());
+		Device.setText("Device: " + ReadDevice());
+		Display.setText("Display: " + ReadDisplay());
+		Fingerprint.setText("Fingerprint: " + ReadFingerprint());
+		Hardware.setText("Hardware: " + ReadHardware());
+		Host.setText("Host: " + ReadHost());
+		IDd.setText("ID: " + ReadIDd());
+		Manufacturer.setText("Manufacturer: " + ReadManufacturer());
+		Product.setText("Product: " + ReadProduct());
+		Serial.setText("Serial: " + ReadSerial());
+		Tags.setText("Tags: " + ReadTags());
+		Time.setText("Time: " + ReadTime());
+		Type.setText("Type: " + ReadType());
+		User.setText("User: " + ReadUser());
+		CPUinfo.setText("CPU Info: " + ReadCPUinfo());
+		OSinfo.setText("OS Info: " + ReadOSinfo());
     }
  
 private String ReadOSVersion() {
 	String AndroidVersion = android.os.Build.VERSION.RELEASE;
 	return AndroidVersion;
-}
-
-private String ReadPhoneModel() {
-	String PhoneModel = android.os.Build.MODEL;
-	return PhoneModel;
 }
 
 private String ReadBoard() {
@@ -166,8 +161,8 @@ private String ReadTags() {
 	return Tags;
 }
 
-private String ReadTime() {
-	String Time = android.os.Build.TIME;
+private long ReadTime() {
+	long Time = android.os.Build.TIME;
 	return Time;
 }
 
@@ -202,7 +197,8 @@ private String ReadCPUinfo()
 			ex.printStackTrace();
 		}
 	return result;
-}
+	}
+
     
 private String ReadOSinfo()
 {

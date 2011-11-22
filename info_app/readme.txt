@@ -1,4 +1,6 @@
-A run-once (Android 2.1 or greater) binary for finding the OS Version, Phone Model, OS Info (including Linux Version), CPU info and Hardware info of an Android-based phone.
+A run-once binary for finding the OS Version, Phone Model, OS Info (including Linux Version), CPU info and Hardware info of an Android-based phone.
+
+For android versions > 3, use the "Phone" version.
 
 To build from source:
 Create a new Eclipse Android Project, main package named "com.hammink.AndroidOSInfoActivity"
